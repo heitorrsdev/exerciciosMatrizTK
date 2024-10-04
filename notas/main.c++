@@ -33,9 +33,10 @@ int main()
             cout <<"Reprovado\n";
         }
     
-        cout <<"Digite [Y] PARA CONTINUAR e[N] PARA PARAR o sistema.\n";
+        cout <<"Digite [Y] PARA CONTINUAR e [N] PARA PARAR o sistema.\n";
         cin >> parar;
             
     }while (parar != 'N');
+    cout << "Sistema finalizando... \n";
 
 }
