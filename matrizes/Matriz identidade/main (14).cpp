@@ -1,39 +1,34 @@
 #include <iostream>
 #include <locale.h>
+#include <vector>
 
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "Portuguese");
+  setlocale(LC_ALL, "Portuguese");
 
-    int N;
+  int ordem;
 
-    // Solicita o tamanho da matriz
-    cout << "Digite o tamanho da matriz identidade (N): ";
-    cin >> N;
+  // Solicita o tamanho da matriz
+  cout << "Digite o tamanho da matriz identidade: ";
+  cin >> ordem; // input
 
-    // Declara a matriz
-    int matriz[N][N];
+  // Cria a variável matriz usando vector, inialmentando com zeros
+  vector<vector<int>> matriz(ordem, vector<int>(ordem, 0));
 
-    // Preenche a matriz identidade
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (i == j) {
-                matriz[i][j] = 1;  // Elementos da diagonal principal
-            } else {
-                matriz[i][j] = 0;  // Elementos fora da diagonal principal
-            }
-        }
+  // Preenche a diagonal principal com 1
+  for (int i = 0; i < ordem; i++) {
+    matriz[i][i] = 1;
+  }
+
+  // Exibe a matriz identidade
+  cout << "Matriz identidade de tamanho " << ordem << "x" << ordem << ":" << endl;
+  for (int i = 0; i < ordem; i++) {
+    for (int j = 0; j < ordem; j++) {
+      cout << matriz[i][j] << " ";
     }
+    cout << endl;
+  }
 
-    // Exibe a matriz identidade
-    cout << "Matriz identidade de tamanho " << N << "x" << N << ":" << endl;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            cout << matriz[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    return 0;
+  return 0;
 }
